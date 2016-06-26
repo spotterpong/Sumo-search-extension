@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"name": "Sumo API Redirect",
+	"version": "0.1",
+	"permissions": ["tabs", "contextMenus"],
+	"content_scripts": [{
+	    "matches": ["http://*.qualtrics.com/WRQualtricsControlPanel/?ClientAction=ChangePage&Section=DistributeSection",
+	 	"https://*.qualtrics.com/WRQualtricsControlPanel/?ClientAction=ChangePage&Section=DistributeSection"],
+	    "js": ["jquery-2.2.4.min.js", "content.js"]
+	  },
+	  {
+	    "matches": ["<all_urls>"],
+	    "js": ["jquery-2.2.4.min.js", "sumo_content.js"]	  
+	  }],
+	"background": {
+		"scripts": ["background.js"]
+	}
+}
